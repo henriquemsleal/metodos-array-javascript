@@ -48,3 +48,19 @@ function toCreateInHtml(nomeMetodo, array) {
 
 // 0- Dados na tela
 toCreateInHtml('Dados', data);
+
+// 1- reverse
+data.reverse();
+toCreateInHtml('Reverse', data);
+
+// 2- find
+const highSallary = 5000;
+const highestSallary = data.find(pessoa => pessoa.sallary > highSallary);
+toCreateInHtml('Find', highestSallary);
+
+// 3- findIndex
+const lowestSallary = data.findIndex(pessoa => pessoa.sallary > 0 && pessoa.sallary < 2000);
+toCreateInHtml('FindIndex', lowestSallary);
+
+data[lowestSallary].sallary += 200;
+toCreateInHtml('FindIndex', data);
