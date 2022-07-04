@@ -38,8 +38,11 @@ function toCreateP(div, array) {
 }
 
 function toCreateInHtml(nomeMetodo, array) {
-  toCreateDiv(nomeMetodo, 'metodos', divMetodos);
-  const div = document.getElementById(nomeMetodo.toLowerCase());
+  const metodo = nomeMetodo.toLowerCase();
+  if (metodo !== idsDivsMetodos[idsDivsMetodos.length - 1]) {
+    toCreateDiv(nomeMetodo, 'metodos', divMetodos);
+  }
+  const div = document.getElementById(metodo);
   toCreateP(div, array);
 }
 
