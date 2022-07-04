@@ -64,3 +64,47 @@ toCreateInHtml('FindIndex', lowestSallary);
 
 data[lowestSallary].sallary += 200;
 toCreateInHtml('FindIndex', data);
+
+// 4- includes
+const numbers = [[1, 2, 3, 4, 5]];
+const hasFour = numbers.includes(4);
+toCreateInHtml('Includes', numbers);
+toCreateInHtml('Includes', ['const hasFour = numbers.includes(4);']);
+toCreateInHtml('Includes', hasFour);
+
+// 5- map
+data.map(user => (user.newsletter = false));
+toCreateInHtml('Map', data);
+
+// 6- filter
+const drivers = data.filter(user => user.driverLicense);
+toCreateInHtml('Filter', drivers);
+
+// 7- reduce
+const sallariesSum = data.reduce((totalSallary, user) => (totalSallary += user.sallary), 0);
+toCreateInHtml('Reduce', sallariesSum);
+
+// 8- forEach
+const results = [];
+const showUserNames = users => {
+  users.forEach(user => {
+    results.push(`Olá ${user.name}`);
+  });
+};
+showUserNames(data);
+toCreateInHtml('ForEach', results);
+
+// 9- some
+let someOneWithNewsletter = data => data.some(user => user.newsletter);
+toCreateInHtml('Some', someOneWithNewsletter(data));
+data[0].newsletter = true;
+toCreateInHtml('Some', ['data[0].newsletter = true']);
+toCreateInHtml('Some', someOneWithNewsletter(data));
+
+// 10- every
+const everyUserHasName = data.every(user => user.name);
+toCreateInHtml('Every', ['data.every(user => user.name)']);
+toCreateInHtml('Every', everyUserHasName);
+const everyUserHasGoodSallary = data.every(user => user.sallary > 2000);
+toCreateInHtml('Every', ['data.every(user => user.sallary > 2000)']);
+toCreateInHtml('Every', everyUserHasGoodSallary);
